@@ -10,3 +10,5 @@ st.text("""This project was idealized as part of the Data Science & AI Bootcamp 
 
         Claudio, Erika, George and João.
         """)
+
+st.image("eyesense_team.png")
