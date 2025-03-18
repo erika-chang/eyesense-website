@@ -11,4 +11,4 @@ st.text("""This project was idealized as part of the Data Science & AI Bootcamp 
         Claudio, Erika, George and João.
         """)
 
-st.image('https://github.com/erika-chang/eyesense-website/blob/master/interface/eyesense_team.png')
+st.image('https://erika-chang.github.io/eyesense_team.png')
