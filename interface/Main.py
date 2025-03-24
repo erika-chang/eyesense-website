@@ -144,7 +144,7 @@ elif st.session_state.current_page == "about-model":
         - **Model Version:** v1.2 (updated regularly)
         """
     )
-    st.markdown("### 📊 Model Performance Comparison")
+    st.markdown("### 📊 Model's metrics")
 
     # Dados da tabela
     data = {
@@ -155,6 +155,8 @@ elif st.session_state.current_page == "about-model":
         "Precision": [0.47, 0.53, 0.56, 0.51, 0.49, 0.51, 0.52],
         "ROC AUC": [0.47, 0.53, 0.53, 0.52, 0.49, 0.51, 0.52],
     }
+
+    data.set_index("Class", inplace=True)
 
     # Criando um DataFrame
     df = pd.DataFrame(data)
