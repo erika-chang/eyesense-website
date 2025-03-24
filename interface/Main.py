@@ -43,16 +43,16 @@ st.markdown(
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    if st.button("🏠 Home"):
+    if st.button("🏠 Home", type='tertiary'):
         change_page("home")
 with col2:
-    if st.button("👥 About Us"):
+    if st.button("👥 About Us", type='tertiary'):
         change_page("about-us")
 with col3:
-    if st.button("📌 About the Project"):
+    if st.button("📌 About the Project", type='tertiary'):
         change_page("about-project")
 with col4:
-    if st.button("🤖 About the Model"):
+    if st.button("🤖 About the Model", type='tertiary'):
         change_page("about-model")
 
 # Exibição do conteúdo da página selecionada
@@ -104,6 +104,7 @@ elif st.session_state.current_page  == "about-us":
 
         Claudio, Erika, George and João.""")
     st.image('https://erika-chang.github.io/eyesense_team.png')
+    st.link_button()
 
 elif st.session_state.current_page  == "about-project":
     st.title("About the Project 🚀")
