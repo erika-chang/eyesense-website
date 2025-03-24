@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Configuração da página
 st.set_page_config(page_title="Eyesense", page_icon="👁️", layout="wide")
@@ -127,15 +128,15 @@ elif st.session_state.current_page == "about-model":
         """
         ### 🔥 AI Model Overview
         - **Architecture:** Convolutional Neural Networks (CNN), based on **Xception**
-        - **Training Data:** Thousands of **real medical images**
+        - **Training Data:** 6392 images
         - **Accuracy:** ~92% on validation datasets
 
         ### 📚 Model Description
-        The **Eyesense model** leverages the powerful **Xception** architecture, a deep learning model known for its **efficiency** and **high performance** in image classification tasks.
+        The **Eyesense model** uses the powerful **Xception** architecture, a deep learning model known for its **efficiency** and **high performance** in image classification tasks.
 
         - **Base Model:** The model uses the pre-trained **Xception network** with weights from ImageNet, a large dataset of labeled images. This helps the model generalize better to unseen images.
 
-        - **Freezing Layers:** The base model's layers are **frozen** to prevent them from being updated during training. This allows the model to retain the powerful features learned from ImageNet.
+        - **Freezing Layers:** The base model's layers are **frozen** to prevent them from being updated during training. This allows the model to retain the features learned from ImageNet.
 
         - **Global Average Pooling:** Instead of using fully connected layers, **Global Average Pooling** is applied to reduce the spatial dimensions of the output, which improves efficiency and reduces the risk of overfitting.
 
@@ -146,16 +147,34 @@ elif st.session_state.current_page == "about-model":
         - **Output Layer:** The model ends with a softmax output layer with **7 units**, one for each disease class (cataract, degeneration, diabetes, glaucoma, hypertension, myopia, and normal).
 
         ### 🏥 Diseases Detected
+        - Cataract
+        - Age-related Macular Degeneration
+        - Diabets
         - Glaucoma
-        - Diabetic Retinopathy
-        - Cataracts
-        - Other common eye conditions
+        - Hypertension
+        - Pathological Myopia
 
         ### 📚 Technical Details
         - **Frameworks:** TensorFlow
         - **Cloud Hosting:** Google Cloud
         """
     )
+    st.markdown("### 📊 Data distribution")
+    # Dados das classes
+    labels = ['Normal (N)', 'Diabetes (D)', 'Other (O)', 'Cataract (C)', 'Glaucoma (G)',
+          'Age-related (A)', 'Myopia (M)', 'Hypertension (H)']
+    sizes = [2873, 1608, 708, 293, 284, 266, 232, 128]
+    colors = ['#66b3ff', '#ff9999', '#99ff99', '#ffcc99', '#c2c2f0', '#ffb3e6', '#ff6666', '#c4e17f']
+    explode = (0.1, 0, 0, 0, 0, 0, 0, 0)  # Destacar a maior classe
+
+    # Criando o gráfico de pizza
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, startangle=140, explode=explode)
+    ax.axis('equal')  # Garantir que o gráfico seja um círculo
+
+    # Exibir no Streamlit
+    st.subheader("Distribuição de Classes no Banco de Dados")
+    st.pyplot(fig)
 
     st.markdown("### 📊 Model's metrics")
 
@@ -175,3 +194,5 @@ elif st.session_state.current_page == "about-model":
 
     # Exibindo a tabela
     st.dataframe(df)
+
+    st.markdown("""" """)
