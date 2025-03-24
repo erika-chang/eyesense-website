@@ -37,14 +37,10 @@ if st.session_state.current_page == "home":
 
     # Verifica se o usuário fez upload de uma imagem
     if image_file:
-        col1, col2 = st.columns(2)
+        st.info("Click 'Predict!' to analyze the image.")
 
-        with col1:
-            # Exibe a imagem carregada
-            st.image(image_file, caption="Uploaded Image", use_column_width=True)
-
-        with col2:
-            st.info("Click 'Predict!' to analyze the image.")
+        # Exibe a imagem carregada
+        st.image(image_file, caption="Uploaded Image", use_container_width=True)
 
         # Botão de previsão
         if st.button("Predict! 🧙‍♀️"):
@@ -62,19 +58,6 @@ if st.session_state.current_page == "home":
 
                 except Exception as e:
                     st.error(f"An error occurred: {str(e)}")
-
-elif st.session_state.current_page == "about-us":
-    st.title("About Us 🧑‍💻")
-    st.write("We are a team of AI enthusiasts committed to building innovative solutions for healthcare.")
-
-elif st.session_state.current_page == "about-project":
-    st.title("About the Project 🚀")
-    st.write("Eyesense is an AI-driven platform designed to help detect eye-related diseases from images.")
-
-elif st.session_state.current_page == "about-model":
-    st.title("About the Model 🤖")
-    st.write("The Eyesense AI model is based on deep learning techniques, trained with thousands of medical images to accurately predict eye conditions.")
-
 
 elif st.session_state.current_page  == "about-us":
     st.title("About Us 🧑‍💻")
