@@ -12,64 +12,37 @@ if "current_page" not in st.session_state:
 def change_page(page):
     st.session_state.current_page = page
 
-# Estilo para melhorar a sidebar
-st.markdown(
-    """
-    <style>
-        .sidebar-text {
-            font-size: 18px;
-        }
-        .sidebar-link {
-            text-decoration: none;
-            font-weight: bold;
-            color: #007bff;
-            font-size: 20px;
-        }
-        .sidebar-link:hover {
-            color: #0056b3;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-# Barra lateral para navegação com links estilizados
+# Barra lateral para navegação
 with st.sidebar:
     st.title("🔍 Eyesense Navigation")
-    st.markdown('<p class="sidebar-text">Navigate through the sections:</p>', unsafe_allow_html=True)
-    st.markdown('<a href="#" class="sidebar-link" onclick="window.location.hash=\'home\'">🏠 Home</a>', unsafe_allow_html=True)
-    st.markdown('<a href="#" class="sidebar-link" onclick="window.location.hash=\'about-us\'">👥 About Us</a>', unsafe_allow_html=True)
-    st.markdown('<a href="#" class="sidebar-link" onclick="window.location.hash=\'about-project\'">📌 About the Project</a>', unsafe_allow_html=True)
-    st.markdown('<a href="#" class="sidebar-link" onclick="window.location.hash=\'about-model\'">🤖 About the Model</a>', unsafe_allow_html=True)
+    if st.button("🏠 Home"):
+        change_page("home")
+    if st.button("👥 About Us"):
+        change_page("about-us")
+    if st.button("📌 About the Project"):
+        change_page("about-project")
+    if st.button("🤖 About the Model"):
+        change_page("about-model")
 
 # Exibição do conteúdo da página selecionada
 if st.session_state.current_page == "home":
-    st.title("Eyesense 👁️ – AI for Eye Disease Detection")
-    st.write(
-        "Eyesense is an **AI-powered tool** designed to assist in the early detection of **eye diseases** "
-        "using deep learning models trained on thousands of medical images."
-    )
+    st.title("Eyesense 👁️")
 
-    st.markdown("### 🔬 How does it work?")
-    st.write("Simply **upload an image** of an eye, and our AI model will analyze it for potential diseases.")
+    # Descrição
+    st.markdown("### AI-powered Eye Disease Prediction")
+    st.write("Upload an image of an eye, and our AI model will predict potential eye-related diseases.")
 
     # Upload de imagem
-    image_file = st.file_uploader("📤 Upload your image file here:", type=["jpeg", "png", "jpg"])
+    image_file = st.file_uploader("Upload your image file here:", type=["jpeg", "png", "jpg"])
 
     # Verifica se o usuário fez upload de uma imagem
     if image_file:
-        col1, col2 = st.columns(2)
 
-        with col1:
-            # Exibe a imagem carregada
-            st.image(image_file, caption="👁️ Uploaded Image", use_column_width=True)
-
-        with col2:
-            st.info("Click 'Predict!' to analyze the image.")
+        st.info("Click 'Predict!' to analyze the image.")
 
         # Botão de previsão
-        if st.button("🔍 Predict!"):
-            with st.spinner("Analyzing... 🕵️‍♂️"):
+        if st.button("Predict! 🧙‍♀️"):
+            with st.spinner("Analyzing... 🔍"):
                 try:
                     img_bytes = image_file.getvalue()
                     url = "https://your-api-endpoint.com/predict"  # Substitua pela URL correta
@@ -77,12 +50,15 @@ if st.session_state.current_page == "home":
 
                     if response.status_code == 200:
                         prediction = response.json().get("prediction", "No result returned")
-                        st.success(f"🩺 Prediction: **{prediction}**")
+                        st.success(f"Prediction: {prediction}")
                     else:
-                        st.error("⚠️ Error fetching prediction. Please try again.")
+                        st.error("Error fetching prediction. Please try again.")
 
                 except Exception as e:
-                    st.error(f"❌ An error occurred: {str(e)}")
+                    st.error(f"An error occurred: {str(e)}")
+
+        # Exibe a imagem carregada
+        st.image(image_file, caption="Uploaded Image", use_column_width=True)
 
 elif st.session_state.current_page == "about-us":
     st.title("👥 About Us")
