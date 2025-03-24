@@ -179,7 +179,31 @@ elif st.session_state.current_page == "about-model":
         # Exibir no Streamlit
         st.pyplot(fig)
 
-        st.markdown("### 📊 Model's metrics")
+    st.markdown(""""
+                The original dataset was unbalanced, so we applied data augmentation techniques to improve its distribution.
+                The augmentation process included slight rotations, adjustments in image contrast, and resizing.
+                After applying these enhancements, the data distribution was as follows:
+                """)
+
+    col1, col2, col3 = st.columns(3)
+
+    with col2:
+        # Definição das classes e contagens
+        classes = ['Cataract', 'Degeneration', 'Diabetes', 'Glaucoma', 'Hypertension', 'Myopia', 'Normal']
+        counts = [1696, 1536, 1159, 744, 1648, 1344, 2070]  # Contagens correspondentes às categorias
+
+        colors = ['#66b3ff', '#ff9999', '#99ff99', '#ffcc99', '#c2c2f0', '#ffb3e6', '#ff6666']
+        explode = (0.05, 0.05, 0.05, 0.1, 0.05, 0.05, 0.05)  # Destaque para cada fatia
+
+        # Criando o gráfico de pizza
+        fig, ax = plt.subplots(figsize=(6, 6))  # Define um tamanho adequado
+        ax.pie(counts, labels=classes, autopct='%1.1f%%', colors=colors, startangle=140, explode=explode,
+       textprops={'fontsize': 10})  # Define o tamanho das legendas
+
+        ax.axis('equal')  # Mantém o formato circular
+
+        # Exibir no Streamlit
+        st.pyplot(fig)
 
     # Dados da tabela
     data = {
