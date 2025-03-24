@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import pandas as pd
 
 # Configuração da página
 st.set_page_config(page_title="Eyesense", page_icon="👁️", layout="wide")
@@ -143,3 +144,20 @@ elif st.session_state.current_page == "about-model":
         - **Model Version:** v1.2 (updated regularly)
         """
     )
+    st.markdown("### 📊 Model Performance Comparison")
+
+    # Dados da tabela
+    data = {
+        "Class": ["Cataract", "Degeneration", "Diabetes", "Glaucoma", "Hypertension", "Myopia", "Normal"],
+        "Accuracy": [0.89, 0.92, 0.69, 0.87, 0.96, 0.92, 0.52],
+        "Recall": [0.47, 0.53, 0.53, 0.52, 0.49, 0.51, 0.52],
+        "F1 Score": [0.47, 0.53, 0.51, 0.51, 0.49, 0.51, 0.51],
+        "Precision": [0.47, 0.53, 0.56, 0.51, 0.49, 0.51, 0.52],
+        "ROC AUC": [0.47, 0.53, 0.53, 0.52, 0.49, 0.51, 0.52],
+    }
+
+    # Criando um DataFrame
+    df = pd.DataFrame(data)
+
+    # Exibindo a tabela
+    st.dataframe(df)
