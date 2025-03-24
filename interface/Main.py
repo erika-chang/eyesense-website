@@ -102,6 +102,15 @@ elif st.session_state.current_page == "about-project":
         That's why we at Eyesense developed an AI-powered tool to help doctors diagnose the most common eye diseases using only one eye fundus image.
 
         The model can classify the image into eight labels:
+        - Normal (N)
+        - Diabetes (D)
+        - Glaucoma (G)
+        - Cataract (C)
+        - Age-related Macular Degeneration (A)
+        - Hypertension (H)
+        - Pathological Myopia (M)
+        - Other diseases/abnormalities (O)
+
         ### 🔍 How We Built It
         - **Deep Learning Models** trained on an ophthalmic database of **5,000 patients**
         - The images were classified according to doctors' diagnostic keywords (information collected by Shanggong Medical Technology Co., Ltd.)
@@ -119,15 +128,14 @@ elif st.session_state.current_page == "about-model":
         - **Training Data:** Thousands of **real medical images**
         - **Accuracy:** ~92% on validation datasets
 
-        ### 🏥 Model classification:
-        - Normal (N)
-        - Diabetes (D)
-        - Glaucoma (G)
-        - Cataract (C)
-        - Age-related Macular Degeneration (A)
-        - Hypertension (H)
-        - Pathological Myopia (M)
-        - Other diseases/abnormalities (O)
+        ### 🏥 Diseases detected
+        - Diabetes
+        - Glaucoma
+        - Cataract
+        - Age-related Macular Degeneration
+        - Hypertension
+        - Pathological Myopia
+        - Other diseases/abnormalities
 
         ### 📚 Technical Details
         - **Frameworks:** TensorFlow, PyTorch
