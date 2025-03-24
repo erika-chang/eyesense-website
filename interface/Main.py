@@ -65,11 +65,17 @@ elif st.session_state.current_page  == "about-us":
 
         We are four data science enthusiasts with different backgrounds that united for a single purpose: make eye disease diagnosis simpler.
 
-        Thank you for using our tool!
+        Thank you for using our tool!""")
 
-        Claudio, Erika, George and João.""")
+    st.link_button(label='Claudio', url='https://www.linkedin.com/in/caazzi')
+    st.write(""", """)
+    st.link_button(label='Erika', url='https://www.linkedin.com/in/ecdazevedo')
+    st.write(""", """)
+    st.link_button(label='George', url='https://www.linkedin.com/in/george-silva-448a7321/')
+    st.write(""" e """)
+    st.link_button(label='João', url='https://github.com/masalesvic')
     st.image('https://erika-chang.github.io/eyesense_team.png')
-    st.link_button()
+
 
 elif st.session_state.current_page  == "about-project":
     st.title("About the Project 🚀")
