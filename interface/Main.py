@@ -51,7 +51,7 @@ if st.session_state.current_page == "home":
                 with st.spinner("Analyzing... 🔍"):
                     try:
                         img_bytes = image_file.getvalue()
-                        url = "https://your-api-endpoint.com/predict"  # Substitua pela URL correta
+                        url = "https://api2-954721262593.europe-west1.run.app/predict"  # Substitua pela URL correta
                         response = requests.post(url, files={"file": img_bytes})
 
                         if response.status_code == 200:
