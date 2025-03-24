@@ -13,7 +13,6 @@ def change_page(page):
     st.session_state.current_page = page
 
 # Barra lateral para navegação
-st.button()
 with st.sidebar:
     st.title("🔍 Eyesense Navigation")
     if st.button("🏠 Home", type="tertiary"):
