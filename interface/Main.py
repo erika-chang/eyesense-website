@@ -81,11 +81,32 @@ if page == "home":
 
 elif page == "about-us":
     st.title("About Us 🧑‍💻")
-    st.write("We are a team of AI enthusiasts committed to building innovative solutions for healthcare.")
+    st.write("""This project was idealized as part of the Data Science & AI Bootcamp from LeWagon.
+
+        We are four data science enthusiasts with different backgrounds that united for a single purpose: make eye disease diagnosis simpler.
+
+        Thank you for using our tool!
+
+        Claudio, Erika, George and João.""")
+    st.image('https://erika-chang.github.io/eyesense_team.png')
 
 elif page == "about-project":
     st.title("About the Project 🚀")
-    st.write("Eyesense is an AI-driven platform designed to help detect eye-related diseases from images.")
+    st.write("""Worldwide, about 2.2 million people have vision impairment. An early and efficient diagnosis tool could prevent about half of those cases.
+
+        That's why we at Eyesense developed an AI-powered tool to help doctors diagnose the most common eye diseases using only one eye fundus image.
+
+        Our models were trained using an ophthalmic database of 5,000 patients (right and left eye) and doctors' diagnostic keywords. This dataset represents patient information collected by Shanggong Medical Technology Co., Ltd. from different hospitals/medical centers in China.
+
+        The model can classify the image into eight labels:
+        -Normal (N)
+        -Diabetes (D)
+        -Glaucoma (G)
+        -Cataract (C)
+        -Age-related Macular Degeneration (A)
+        -Hypertension (H)
+        -Pathological Myopia (M)
+        -Other diseases/abnormalities (O)""")
 
 elif page == "about-model":
     st.title("About the Model 🤖")
