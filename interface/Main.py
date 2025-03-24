@@ -57,7 +57,7 @@ if st.session_state.current_page == "home":
 
                         if response.status_code == 200:
                             prediction = response.json().get("result", "No result returned")
-                            st.success(f"Prediction: {prediction}")
+                            st.success(f"Your image was classified as: {prediction}")
                         else:
                             st.error("Error fetching prediction. Please try again.")
 
