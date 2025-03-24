@@ -161,21 +161,25 @@ elif st.session_state.current_page == "about-model":
     )
     st.markdown("### 📊 Data distribution")
     # Dados das classes
-    labels = ['Normal (N)', 'Diabetes (D)', 'Other (O)', 'Cataract (C)', 'Glaucoma (G)',
+    col1, col2, col3 = st.columns(3)
+
+    with col2:
+        labels = ['Normal (N)', 'Diabetes (D)', 'Other (O)', 'Cataract (C)', 'Glaucoma (G)',
           'Age-related (A)', 'Myopia (M)', 'Hypertension (H)']
-    sizes = [2873, 1608, 708, 293, 284, 266, 232, 128]
-    colors = ['#66b3ff', '#ff9999', '#99ff99', '#ffcc99', '#c2c2f0', '#ffb3e6', '#ff6666', '#c4e17f']
-    explode = (0.1, 0, 0, 0, 0, 0, 0, 0)  # Destacar a maior classe
+        sizes = [2873, 1608, 708, 293, 284, 266, 232, 128]
+        colors = ['#66b3ff', '#ff9999', '#99ff99', '#ffcc99', '#c2c2f0', '#ffb3e6', '#ff6666', '#c4e17f']
+        explode = (0.1, 0, 0, 0, 0, 0, 0, 0)  # Destacar a maior classe
 
-    # Criando o gráfico de pizza
-    fig, ax = plt.subplots(figsize=(0.5,0.5))
-    ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, startangle=140, explode=explode, textprops={'fontsize': 2})
-    ax.axis('equal')  # Garantir que o gráfico seja um círculo
+        # Criando o gráfico de pizza
 
-    # Exibir no Streamlit
-    st.pyplot(fig)
+        fig, ax = plt.subplots()
+        ax.pie(sizes, labels=labels, autopct='%.0f%%', colors=colors, startangle=140, explode=explode)
+        ax.axis('equal')  # Garantir que o gráfico seja um círculo
 
-    st.markdown("### 📊 Model's metrics")
+        # Exibir no Streamlit
+        st.pyplot(fig)
+
+        st.markdown("### 📊 Model's metrics")
 
     # Dados da tabela
     data = {
