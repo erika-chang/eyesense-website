@@ -128,7 +128,7 @@ elif st.session_state.current_page == "about-model":
         """
         ### 🔥 AI Model Overview
         - **Architecture:** Convolutional Neural Networks (CNN), based on **Xception**
-        - **Training Data:** 6392 images
+        - **Training Data:** 6392 images (70% training, 17.73% validation, 7.06% test)
         - **Accuracy:** ~92% on test datasets
 
         ### 📚 Model Description
