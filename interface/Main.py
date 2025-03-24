@@ -179,9 +179,10 @@ elif st.session_state.current_page == "about-model":
         # Exibir no Streamlit
         st.pyplot(fig)
 
-    st.markdown(""""
+    st.markdown("""
                 The original dataset was unbalanced, so we applied data augmentation techniques to achieve a more even distribution.
                 This process involved slight rotations, contrast adjustments, and resizing to enhance variability.
+
                 Additionally, we removed the "Others" category, as it encompassed various eye-related diseases with potentially distinct image patterns.
                 After these adjustments, the data distribution was as follows:
                 """)
