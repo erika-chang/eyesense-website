@@ -195,7 +195,7 @@ elif st.session_state.current_page == "about-model":
         counts = [1696, 1536, 1159, 744, 1648, 1344, 2070]  # Contagens correspondentes às categorias
 
         colors = ['#66b3ff', '#ff9999', '#99ff99', '#ffcc99', '#c2c2f0', '#ffb3e6', '#ff6666']
-        explode = (0.05, 0.05, 0.05, 0.1, 0.05, 0.05, 0.05)  # Destaque para cada fatia
+        explode = (0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1)  # Destaque para cada fatia
 
         # Criando o gráfico de pizza
         fig, ax = plt.subplots(figsize=(6, 6))  # Define um tamanho adequado
