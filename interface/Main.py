@@ -26,19 +26,21 @@ with st.sidebar:
 
 # Exibição do conteúdo da página selecionada
 if st.session_state.current_page == "home":
+    col1, col2 = st.columns(2)
     st.title("Eyesense 👁️")
 
-    # Descrição
-    st.markdown("### AI-powered Eye Disease Prediction")
-    st.write("Upload an image of an eye, and our AI model will predict potential eye-related diseases.")
+    with col2:
+        # Descrição
+        st.markdown("### AI-powered Eye Disease Prediction")
+        st.write("Upload an image of an eye, and our AI model will predict potential eye-related diseases.")
+    with col1:
+        # Upload de imagem
+        image_file = st.file_uploader("Upload your image file here:", type=["jpeg", "png", "jpg"])
 
-    # Upload de imagem
-    image_file = st.file_uploader("Upload your image file here:", type=["jpeg", "png", "jpg"])
+        # Verifica se o usuário fez upload de uma imagem
+        if image_file:
 
-    # Verifica se o usuário fez upload de uma imagem
-    if image_file:
-
-        st.info("Click 'Predict!' to analyze the image.")
+            st.info("Click 'Predict!' to analyze the image.")
 
         # Botão de previsão
         if st.button("Predict! 🧙‍♀️"):
