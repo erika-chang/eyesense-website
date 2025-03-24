@@ -90,15 +90,23 @@ elif st.session_state.current_page == "about-project":
     st.title("📌 About the Project")
     st.markdown(
         """
+        This project was idealized as part of the Data Science & AI Bootcamp from LeWagon.
+
+        Worldwide, about 2.2 million people have vision impairment. An early and efficient diagnosis tool could prevent about half of those cases.
+
+
         ### 🎯 Project Goals
         - Develop an **accurate AI model** to predict eye diseases from medical images
         - Provide a **user-friendly interface** for doctors and patients
         - Increase **awareness** about eye health and **prevent blindness**
+        That's why we at Eyesense developed an AI-powered tool to help doctors diagnose the most common eye diseases using only one eye fundus image.
 
+        The model can classify the image into eight labels:
         ### 🔍 How We Built It
-        - **Deep Learning Models** trained on **thousands** of labeled images
-        - **Collaboration with ophthalmologists** to refine accuracy
+        - **Deep Learning Models** trained on an ophthalmic database of **5,000 patients**
+        - The images were classified according to doctors' diagnostic keywords (information collected by Shanggong Medical Technology Co., Ltd.)
         - **Secure cloud-based API** for fast and reliable predictions
+        - Database source: [kaggle](https://www.kaggle.com/datasets/andrewmvd/ocular-disease-recognition-odir5k/data)
         """
     )
 
@@ -111,11 +119,15 @@ elif st.session_state.current_page == "about-model":
         - **Training Data:** Thousands of **real medical images**
         - **Accuracy:** ~92% on validation datasets
 
-        ### 🏥 Diseases Detected
-        - Glaucoma
-        - Diabetic Retinopathy
-        - Cataracts
-        - Other common eye conditions
+        ### 🏥 Model classification:
+        -Normal (N)
+        -Diabetes (D)
+        -Glaucoma (G)
+        -Cataract (C)
+        -Age-related Macular Degeneration (A)
+        -Hypertension (H)
+        -Pathological Myopia (M)
+        -Other diseases/abnormalities (O)
 
         ### 📚 Technical Details
         - **Frameworks:** TensorFlow, PyTorch
