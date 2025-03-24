@@ -122,8 +122,6 @@ elif st.session_state.current_page == "about-project":
 
 elif st.session_state.current_page == "about-model":
     st.title("🤖 About the Model")
-elif st.session_state.current_page == "about-model":
-    st.title("🤖 About the Model")
 
     st.markdown(
         """
@@ -154,9 +152,8 @@ elif st.session_state.current_page == "about-model":
         - Other common eye conditions
 
         ### 📚 Technical Details
-        - **Frameworks:** TensorFlow, PyTorch
-        - **Cloud Hosting:** AWS & Google Cloud
-        - **Model Version:** v1.2 (updated regularly)
+        - **Frameworks:** TensorFlow
+        - **Cloud Hosting:** Google Cloud
         """
     )
 
