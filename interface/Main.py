@@ -42,7 +42,7 @@ if st.session_state.current_page == "home":
     if image_file:
         col1, col2 = st.columns(2)
 
-        with col1:
+        with col2:
             st.info("Click 'Predict!' to analyze the image.")
             # Botão de previsão
             if st.button("Predict! 🧙‍♀️"):
@@ -61,7 +61,7 @@ if st.session_state.current_page == "home":
                     except Exception as e:
                         st.error(f"An error occurred: {str(e)}")
 
-        with col2:
+        with col1:
             # Exibe a imagem carregada
             st.image(image_file, caption="Uploaded Image", use_container_width=True)
 
