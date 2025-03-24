@@ -58,7 +58,7 @@ if st.session_state.current_page == "home":
                     st.error(f"An error occurred: {str(e)}")
 
         # Exibe a imagem carregada
-        st.image(image_file, caption="Uploaded Image", use_column_width=True)
+    st.image(image_file, caption="Uploaded Image", use_container_width=True)
 
 elif st.session_state.current_page == "about-us":
     st.title("👥 About Us")
