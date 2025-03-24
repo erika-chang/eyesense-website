@@ -26,42 +26,44 @@ with st.sidebar:
 
 # Exibição do conteúdo da página selecionada
 if st.session_state.current_page == "home":
-    col1, col2 = st.columns(2)
-    st.title("Eyesense 👁️")
+    st.title("Eyesense 👁️ – AI for Eye Disease Detection")
+    st.write(
+        "Eyesense is an **AI-powered tool** designed to assist in the early detection of **eye diseases** "
+        "using deep learning models trained on thousands of medical images."
+    )
 
-    with col1:
-        # Upload de imagem
-        image_file = st.file_uploader("Upload your image file here:", type=["jpeg", "png", "jpg"])
+    st.markdown("### 🔬 How does it work?")
+    st.write("Simply **upload an image** of an eye, and our AI model will analyze it for potential diseases.")
 
-        # Verifica se o usuário fez upload de uma imagem
-        if image_file:
+    # Upload de imagem
+    image_file = st.file_uploader("Upload your image file here:", type=["jpeg", "png", "jpg"])
 
+    # Verifica se o usuário fez upload de uma imagem
+    if image_file:
+        col1, col2 = st.columns(2)
+
+        with col1:
             st.info("Click 'Predict!' to analyze the image.")
+            # Botão de previsão
+            if st.button("Predict! 🧙‍♀️"):
+                with st.spinner("Analyzing... 🔍"):
+                    try:
+                        img_bytes = image_file.getvalue()
+                        url = "https://your-api-endpoint.com/predict"  # Substitua pela URL correta
+                        response = requests.post(url, files={"file": img_bytes})
 
-    with col2:
-        # Descrição
-        st.markdown("### AI-powered Eye Disease Prediction")
-        st.write("Upload an image of an eye, and our AI model will predict potential eye-related diseases.")
+                        if response.status_code == 200:
+                            prediction = response.json().get("prediction", "No result returned")
+                            st.success(f"Prediction: {prediction}")
+                        else:
+                            st.error("Error fetching prediction. Please try again.")
 
-        # Botão de previsão
-        if st.button("Predict! 🧙‍♀️"):
-            with st.spinner("Analyzing... 🔍"):
-                try:
-                    img_bytes = image_file.getvalue()
-                    url = "https://your-api-endpoint.com/predict"  # Substitua pela URL correta
-                    response = requests.post(url, files={"file": img_bytes})
+                    except Exception as e:
+                        st.error(f"An error occurred: {str(e)}")
 
-                    if response.status_code == 200:
-                        prediction = response.json().get("prediction", "No result returned")
-                        st.success(f"Prediction: {prediction}")
-                    else:
-                        st.error("Error fetching prediction. Please try again.")
-
-                except Exception as e:
-                    st.error(f"An error occurred: {str(e)}")
-
-        # Exibe a imagem carregada
-    st.image(image_file, caption="Uploaded Image", use_container_width=True)
+        with col2:
+            # Exibe a imagem carregada
+            st.image(image_file, caption="Uploaded Image", use_container_width=True)
 
 elif st.session_state.current_page == "about-us":
     st.title("👥 About Us")
