@@ -168,7 +168,7 @@ elif st.session_state.current_page == "about-model":
     explode = (0.1, 0, 0, 0, 0, 0, 0, 0)  # Destacar a maior classe
 
     # Criando o gráfico de pizza
-    fig, ax = plt.subplots(figsize=(5, 5))
+    fig, ax = plt.subplots(figsize=(3, 4))
     ax.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, startangle=140, explode=explode)
     ax.axis('equal')  # Garantir que o gráfico seja um círculo
 
