@@ -120,14 +120,14 @@ elif st.session_state.current_page == "about-model":
         - **Accuracy:** ~92% on validation datasets
 
         ### 🏥 Model classification:
-        -Normal (N)
-        -Diabetes (D)
-        -Glaucoma (G)
-        -Cataract (C)
-        -Age-related Macular Degeneration (A)
-        -Hypertension (H)
-        -Pathological Myopia (M)
-        -Other diseases/abnormalities (O)
+        - Normal (N)
+        - Diabetes (D)
+        - Glaucoma (G)
+        - Cataract (C)
+        - Age-related Macular Degeneration (A)
+        - Hypertension (H)
+        - Pathological Myopia (M)
+        - Other diseases/abnormalities (O)
 
         ### 📚 Technical Details
         - **Frameworks:** TensorFlow, PyTorch
