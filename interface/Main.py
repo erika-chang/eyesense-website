@@ -72,8 +72,8 @@ elif st.session_state.current_page == "about-us":
     st.markdown(
         """
         ### 🌎 Our Mission
-        We are a team of **data enthusiasts** committed to **leveraging technology**
-        for early detection of **eye diseases** and **improving healthcare accessibility** worldwide.
+        We are a team of **data enthusiasts** committed to **improving technology**
+        for early detection of **eye diseases** and **healthcare accessibility** worldwide.
 
         ### 🏆 Why Eyesense?
         - 🚀 Cutting-edge AI technology
@@ -184,6 +184,7 @@ elif st.session_state.current_page == "about-model":
                 This process involved slight rotations, contrast adjustments, and resizing to enhance variability.
 
                 Additionally, we removed the "Others" category, as it encompassed various eye-related diseases with potentially distinct image patterns.
+
                 After these adjustments, the data distribution was as follows:
                 """)
 
@@ -225,4 +226,27 @@ elif st.session_state.current_page == "about-model":
     # Exibindo a tabela
     st.dataframe(df)
 
-    st.markdown("""" """)
+    st.markdown("""
+                The **accuracy** is the portion of correct predictions made from the model in compairson to the overal number of predictions.
+                The accuracy is high for diseases as Degeneration (0.92), Hypertension (0.96) e Myopia (0.92).
+                For the classification as Normal (0.52) teh accuracy is low, suggesting that the model may have dificulties classifying correctly healthy eyes compared with the diseases.
+
+                The **recall** measures the model's capacity identifying all the true positive instances, i.e., it shows the porcentage of true cases correctly classified as true. A high recall value usually indicates that the model is indicating correctly the presence of a disease.
+                Our model has a relatively low recall for diseases such as Cataract (0.47) and Hypertension (0.49). All reacll numbers vary around 0.5, which indicates that approximately 50% of cases are true and classified as true.
+
+                The **F1 score** is the harmonic average between the precision and the recall. It is useful to evaluate the model's performance in terms of balance between the two metrics. The F1 score is specially useful when there is an imbalance between classes.
+
+                Again, the F1 score in all cases is arround 0.5. Even tough we tried balancing the classes with data augmentation, our model did not present a significative improvement in metrics, because the operations made on the images did not improve significative features for the data classification.
+
+                The **precision** is the proportion of positive results predicted correctly as a result of all the instances predicted as positive, i.e. of all the predictions made by the model, how many where correct.
+                High precision numbers indicate a high probability that the classification is correct.
+
+                The precision arround 0.5 indicates that approximately 50% of cases are false positive for diseases.
+
+                The **ROC AUC** (ROC area under curve) is a metric that measures the capacity of the model to distinguish between classes. The closer it is to 1, better is the model when separating the classes.
+                The area under the curve is the rate of false positives versus true positives.
+
+                Again, the ROC AUC has values around 0.5 indicating that the model has some dificulty in distinguishing between the diseases.
+
+                Altough the model has high accuracy in some eye-related diseases, it still has room for improvement, specially when we take the other metrics into account. The imbalance between classes may play an important role in the model's overall performance, specially in underrepresented classes.
+                """)
