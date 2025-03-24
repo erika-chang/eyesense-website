@@ -39,9 +39,6 @@ if st.session_state.current_page == "home":
     if image_file:
         st.info("Click 'Predict!' to analyze the image.")
 
-        # Exibe a imagem carregada
-        st.image(image_file, caption="Uploaded Image", use_container_width=True)
-
         # Botão de previsão
         if st.button("Predict! 🧙‍♀️"):
             with st.spinner("Analyzing... 🔍"):
@@ -58,6 +55,9 @@ if st.session_state.current_page == "home":
 
                 except Exception as e:
                     st.error(f"An error occurred: {str(e)}")
+
+    # Exibe a imagem carregada
+    st.image(image_file, caption="Uploaded Image", use_container_width=True)
 
 elif st.session_state.current_page  == "about-us":
     st.title("About Us 🧑‍💻")
