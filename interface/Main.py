@@ -122,21 +122,36 @@ elif st.session_state.current_page == "about-project":
 
 elif st.session_state.current_page == "about-model":
     st.title("🤖 About the Model")
+elif st.session_state.current_page == "about-model":
+    st.title("🤖 About the Model")
+
     st.markdown(
         """
         ### 🔥 AI Model Overview
-        - **Architecture:** Convolutional Neural Networks (CNN)
+        - **Architecture:** Convolutional Neural Networks (CNN), based on **Xception**
         - **Training Data:** Thousands of **real medical images**
         - **Accuracy:** ~92% on validation datasets
 
-        ### 🏥 Diseases detected
-        - Diabetes
+        ### 📚 Model Description
+        The **Eyesense model** leverages the powerful **Xception** architecture, a deep learning model known for its **efficiency** and **high performance** in image classification tasks.
+
+        - **Base Model:** The model uses the pre-trained **Xception network** with weights from ImageNet, a large dataset of labeled images. This helps the model generalize better to unseen images.
+
+        - **Freezing Layers:** The base model's layers are **frozen** to prevent them from being updated during training. This allows the model to retain the powerful features learned from ImageNet.
+
+        - **Global Average Pooling:** Instead of using fully connected layers, **Global Average Pooling** is applied to reduce the spatial dimensions of the output, which improves efficiency and reduces the risk of overfitting.
+
+        - **Dropout Regularization:** Dropout is applied to certain layers to regularize the model, preventing it from overfitting on the training data.
+
+        - **Fully Connected Layer:** After pooling, a dense layer with **1024 units** and **ReLU activation** is added to help the model learn complex representations from the data.
+
+        - **Output Layer:** The model ends with a softmax output layer with **7 units**, one for each disease class (cataract, degeneration, diabetes, glaucoma, hypertension, myopia, and normal).
+
+        ### 🏥 Diseases Detected
         - Glaucoma
-        - Cataract
-        - Age-related Macular Degeneration
-        - Hypertension
-        - Pathological Myopia
-        - Other diseases/abnormalities
+        - Diabetic Retinopathy
+        - Cataracts
+        - Other common eye conditions
 
         ### 📚 Technical Details
         - **Frameworks:** TensorFlow, PyTorch
@@ -144,6 +159,7 @@ elif st.session_state.current_page == "about-model":
         - **Model Version:** v1.2 (updated regularly)
         """
     )
+
     st.markdown("### 📊 Model's metrics")
 
     # Dados da tabela
