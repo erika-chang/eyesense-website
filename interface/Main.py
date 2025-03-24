@@ -65,7 +65,7 @@ elif st.session_state.current_page == "about-us":
     st.markdown(
         """
         ### 🌎 Our Mission
-        We are a team of **AI researchers, medical professionals, and developers** committed to **leveraging technology**
+        We are a team of **data enthusiasts** committed to **leveraging technology**
         for early detection of **eye diseases** and **improving healthcare accessibility** worldwide.
 
         ### 🏆 Why Eyesense?
@@ -73,7 +73,11 @@ elif st.session_state.current_page == "about-us":
         - 🏥 Support for medical professionals
         - 🌍 Global health impact
 
-        For more information, contact us at **[contact@eyesense.com](mailto:contact@eyesense.com)**
+        ### 📱 Get in Touch with Us:
+        - [LinkedIn: Claudio](https://www.linkedin.com/in/caazzi)
+        - [LinkedIn: Erika](https://www.linkedin.com/in/ecdazevedo)
+        - [LinkedIn: George](https://www.linkedin.com/in/george-silva-448a7321/)
+        - [GitHub: João](https://github.com/masalesvic)
         """
     )
 
