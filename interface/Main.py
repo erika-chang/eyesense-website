@@ -4,7 +4,15 @@ import requests
 # Configuração da página
 st.set_page_config(page_title="Eyesense", page_icon="👁️", layout="wide")
 
-# Criação da barra de navegação como links
+# Inicializa session_state para armazenar a página ativa
+if "current_page" not in st.session_state:
+    st.session_state.current_page = "home"
+
+# Função para mudar de página sem recarregar
+def change_page(page):
+    st.session_state.current_page = page
+
+# Barra de navegação superior com botões para trocar a página
 st.markdown(
     """
     <style>
@@ -12,36 +20,43 @@ st.markdown(
             display: flex;
             justify-content: center;
             gap: 30px;
-            padding: 10px 0;
+            padding: 10px 10px;
             background-color: #f8f9fa;
             border-bottom: 2px solid #ddd;
         }
-        .nav-links a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
+        .nav-links button {
+            background: none;
+            border: none;
             font-size: 18px;
-            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
         }
-        .nav-links a:hover {
+        .nav-links button:hover {
             color: #007bff;
         }
     </style>
-    <div class="nav-links">
-        <a href="?page=home">Home</a>
-        <a href="?page=about-us">About Us</a>
-        <a href="?page=about-project">About the Project</a>
-        <a href="?page=about-model">About the Model</a>
-    </div>
     """,
     unsafe_allow_html=True,
 )
 
-# Lógica para trocar entre páginas com base no parâmetro da URL
-query_params = st.query_params
-page = query_params.get("page", "home")
+col1, col2, col3, col4 = st.columns(4)
 
-if page == "home":
+with col1:
+    if st.button("🏠 Home"):
+        change_page("home")
+with col2:
+    if st.button("👥 About Us"):
+        change_page("about-us")
+with col3:
+    if st.button("📌 About the Project"):
+        change_page("about-project")
+with col4:
+    if st.button("🤖 About the Model"):
+        change_page("about-model")
+
+# Exibição do conteúdo da página selecionada
+if st.session_state.current_page == "home":
     st.title("Eyesense 👁️")
 
     # Descrição
@@ -79,7 +94,7 @@ if page == "home":
                 except Exception as e:
                     st.error(f"An error occurred: {str(e)}")
 
-elif page == "about-us":
+elif st.session_state.current_page  == "about-us":
     st.title("About Us 🧑‍💻")
     st.write("""This project was idealized as part of the Data Science & AI Bootcamp from LeWagon.
 
@@ -90,7 +105,7 @@ elif page == "about-us":
         Claudio, Erika, George and João.""")
     st.image('https://erika-chang.github.io/eyesense_team.png')
 
-elif page == "about-project":
+elif st.session_state.current_page  == "about-project":
     st.title("About the Project 🚀")
     st.write("""Worldwide, about 2.2 million people have vision impairment. An early and efficient diagnosis tool could prevent about half of those cases.
 
@@ -108,6 +123,6 @@ elif page == "about-project":
         -Pathological Myopia (M)
         -Other diseases/abnormalities (O)""")
 
-elif page == "about-model":
+elif st.session_state.current_page  == "about-model":
     st.title("About the Model 🤖")
     st.write("The Eyesense AI model is based on deep learning techniques, trained with thousands of medical images to accurately predict eye conditions.")
