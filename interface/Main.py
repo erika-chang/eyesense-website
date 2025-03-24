@@ -4,10 +4,44 @@ import requests
 # Configuração da página
 st.set_page_config(page_title="Eyesense", page_icon="👁️", layout="wide")
 
-# Barra de navegação superior
-menu = st.radio("Navigation", ["Home", "About us", "About the project", "About the model"], horizontal=True)
+# Criação da barra de navegação como links
+st.markdown(
+    """
+    <style>
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px 0;
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 15px;
+        }
+        .nav-links a:hover {
+            color: #007bff;
+        }
+    </style>
+    <div class="nav-links">
+        <a href="?page=home">Home</a>
+        <a href="?page=about-us">About Us</a>
+        <a href="?page=about-project">About the Project</a>
+        <a href="?page=about-model">About the Model</a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-if menu == "Home":
+# Lógica para trocar entre páginas com base no parâmetro da URL
+query_params = st.query_params
+page = query_params.get("page", "home")
+
+if page == "home":
     st.title("Eyesense 👁️")
 
     # Descrição
@@ -23,7 +57,7 @@ if menu == "Home":
 
         with col1:
             # Exibe a imagem carregada
-            st.image(image_file, caption="Uploaded Image", use_container_width=True)
+            st.image(image_file, caption="Uploaded Image", use_column_width=True)
 
         with col2:
             st.info("Click 'Predict!' to analyze the image.")
@@ -45,14 +79,14 @@ if menu == "Home":
                 except Exception as e:
                     st.error(f"An error occurred: {str(e)}")
 
-elif menu == "About us":
+elif page == "about-us":
     st.title("About Us 🧑‍💻")
     st.write("We are a team of AI enthusiasts committed to building innovative solutions for healthcare.")
 
-elif menu == "About the project":
+elif page == "about-project":
     st.title("About the Project 🚀")
     st.write("Eyesense is an AI-driven platform designed to help detect eye-related diseases from images.")
 
-elif menu == "About the model":
+elif page == "about-model":
     st.title("About the Model 🤖")
     st.write("The Eyesense AI model is based on deep learning techniques, trained with thousands of medical images to accurately predict eye conditions.")
