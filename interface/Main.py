@@ -106,13 +106,14 @@ elif st.session_state.current_page == "about-project":
         """
         This project was idealized as part of the Data Science & AI Bootcamp from LeWagon.
 
-        Worldwide, about 2.2 million people have vision impairment. An early and efficient diagnosis tool could prevent about half of those cases.
+        Worldwide, about 2.2 billion people have vision impairment. An early and efficient diagnosis tool could prevent about half of those cases.
 
 
         ### 🎯 Project Goals
         - Develop an **accurate AI model** to predict eye diseases from medical images
         - Provide a **user-friendly interface** for doctors and patients
         - Increase **awareness** about eye health and **prevent blindness**
+
         That's why we at Eyesense developed an AI-powered tool to help doctors diagnose the most common eye diseases using only one eye fundus image.
 
         The model can classify the image into eight labels:
