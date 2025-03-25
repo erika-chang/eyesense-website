@@ -29,13 +29,16 @@ with st.sidebar:
 # Exibição do conteúdo da página selecionada
 if st.session_state.current_page == "home":
     st.title("Eyesense 👁️ – AI for Eye Disease Detection")
-    st.write(
-        "Eyesense is an **AI-powered tool** designed to assist in the early detection of **eye diseases** "
-        "using deep learning models trained on thousands of medical images."
-    )
+    st.markdown("""
+        **Eysense** is an advanced **AI-driven technology** designed for the **analysis of fundus eye exams to detect ocular diseases with high precision**.
+
+        By leveraging deep learning, our system assists healthcare professionals in making faster and more accurate diagnoses, enabling early detection and improved patient outcomes.
+
+        With cutting-edge artificial intelligence, Eysense enhances diagnostic accuracy, supports clinical decision-making, and contributes to the future of ophthalmology.
+        """)
 
     st.markdown("### 🔬 How does it work?")
-    st.write("Simply **upload an image** of an eye, and our AI model will analyze it for potential diseases.")
+    st.write("**Simply upload a fundus eye image**, and our AI model—powered by state-of-the-art deep learning techniques—will analyze it to identify potential eye diseases.")
 
     # Upload de imagem
     image_file = st.file_uploader("Upload your image file here:", type=["jpeg", "png", "jpg"])
@@ -264,7 +267,11 @@ elif st.session_state.current_page == "about-model":
                 - Overall Architecture
                 - Comparison with State-of-the-Art Results
 
-                1. Original Depthwise Separable Convolution
+                1. Original Depthwise Separable Convolution""")
+
+    st.image("https://erika-chang.github.io/Depthwise Convolution.webp", caption="Original Depthwise Separable Convolution architecture", width= 600)
+
+    st.markdown("""
                 The original depthwise separable convolution consists of:
                 -  Depthwise convolution – A channel-wise n×n spatial convolution. If there are 5 channels, then 5 separate n×n spatial convolutions are performed.
                 - Pointwise convolution – A 1×1 convolution that adjusts the dimensionality.
@@ -273,7 +280,11 @@ elif st.session_state.current_page == "about-model":
 
                 Unlike traditional convolution, depthwise separable convolution reduces the number of connections, making the model lighter and more efficient.
 
-                2. Modified Depthwise Separable Convolution in Xception
+                2. Modified Depthwise Separable Convolution in Xception""")
+
+    st.image("https://erika-chang.github.io/Pointwise Convolution.webp", caption=" Modified Depthwise Separable Convolution architecture in Xception", width= 600)
+
+    st.markdown("""
                 In Xception, the depthwise separable convolution is rearranged:
                 - Pointwise convolution (1×1) is applied first
                 - Depthwise convolution (n×n) follows after
@@ -293,8 +304,11 @@ elif st.session_state.current_page == "about-model":
                 In Xception, there is NO intermediate activation function (ReLU/ELU), leading to higher accuracy.
 
                 - Performance Comparison
-                Xception without intermediate activation functions achieves higher accuracy than versions using ELU or ReLU.
+                Xception without intermediate activation functions achieves higher accuracy than versions using ELU or ReLU.""")
 
+    st.image("https://erika-chang.github.io/No intermediate activation.webp", caption="Performance Comparison: no  intermediate activation x ELU x ReLU", width= 600)
+
+    st.markdown("""
                 3. Overall Architecture
                 Xception treats SeparableConv (modified depthwise separable convolution) as Inception Modules, integrating them throughout the deep learning architecture.
                 - Residual (shortcut/skip) connections (inspired by ResNet) are incorporated in all flows.
