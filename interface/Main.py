@@ -126,7 +126,7 @@ elif st.session_state.current_page == "about-project":
         - Other diseases/abnormalities (O)
 
         ### 🔍 How We Built It
-        - **Deep Learning Models** trained on an ophthalmic database of **5,000 patients**
+        - **Deep Learning Models** trained on an ophthalmic database of approximately **5,000 patients**
         - The images were classified according to doctors' diagnostic keywords (information collected by Shanggong Medical Technology Co., Ltd.)
         - **Secure cloud-based API** for fast and reliable predictions
         - Database source: [kaggle](https://www.kaggle.com/datasets/andrewmvd/ocular-disease-recognition-odir5k/data)
