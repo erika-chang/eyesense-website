@@ -51,13 +51,13 @@ if st.session_state.current_page == "home":
                 with st.spinner("Analyzing... 🔍"):
                     try:
                         img_bytes = image_file.getvalue()
-                        url = 'https://api2-954721262593.europe-west1.run.app/predict'
+                        url = 'https://apieyesense-954721262593.europe-west1.run.app/predict'
                         response = requests.post(url, files={'img': img_bytes})
 
 
                         if response.status_code == 200:
                             prediction = response.json().get("result", "No result returned")
-                            st.success(f"Your image was classified as: {prediction}")
+                            st.success(f"Probabilities per class: {prediction}")
                         else:
                             st.error("Error fetching prediction. Please try again.")
 
