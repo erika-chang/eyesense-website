@@ -139,7 +139,7 @@ elif st.session_state.current_page == "about-model":
         """
         ### 🔥 AI Model Overview
         - **Architecture:** Convolutional Neural Networks (CNN), based on **Xception**
-        - **Training Data:** 6392 images (70% training, 7.93% validation, 7.93% test)
+        - **Training Data:** 6392 images (85,88% training, 7.93% validation, 7.93% test)
         - **Accuracy:** ~92% on test datasets""")
 
     st.image("https://erika-chang.github.io/xception_build.png", caption="Example of a Xception architechture.", use_container_width=True)
