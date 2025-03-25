@@ -58,7 +58,11 @@ if st.session_state.current_page == "home":
                         if response.status_code == 200:
                             prediction = response.json().get("result", "No result returned")
                             #st.success(f"Probabilities per class: {prediction}")
-                            st.success(f"Class: {prediction[0][0]} \n Probability: {prediction[0][1]}")
+                            predict_df = pd.DataFrame(prediction)
+                            predict_df.rename(columns={0: "Class", 1:"Probability"}, inplace=True)
+                            st.success(f"The most probable class is: {prediction[0][0].capitalize()}")
+                            st.dataframe(predict_df, hide_index=True)
+
                         else:
                             st.error("Error fetching prediction. Please try again.")
 
