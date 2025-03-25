@@ -34,7 +34,7 @@ if st.session_state.current_page == "home":
 
         By leveraging deep learning, our system assists healthcare professionals in making faster and more accurate diagnoses, enabling early detection and improved patient outcomes.
 
-        With cutting-edge artificial intelligence, Eysense enhances diagnostic accuracy, supports clinical decision-making, and contributes to the future of ophthalmology.
+        With cutting-edge artificial intelligence, Eyesense enhances diagnostic accuracy, supports clinical decision-making, and contributes to the future of ophthalmology.
         """)
 
     st.markdown("### 🔬 How does it work?")
@@ -116,7 +116,7 @@ elif st.session_state.current_page == "about-project":
 
         That's why we at Eyesense developed an AI-powered tool to help doctors diagnose the most common eye diseases using only one eye fundus image.
 
-        The model can classify the image into eight labels:
+        The model can classify the image into seven labels:
         - Normal (N)
         - Diabetes (D)
         - Glaucoma (G)
