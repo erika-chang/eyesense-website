@@ -228,26 +228,17 @@ elif st.session_state.current_page == "about-model":
     st.dataframe(df)
 
     st.markdown("""
-                The **accuracy** is the portion of correct predictions made from the model in compairson to the overal number of predictions.
-                The accuracy is high for diseases as Degeneration (0.92), Hypertension (0.96) e Myopia (0.92).
-                For the classification as Normal (0.52) teh accuracy is low, suggesting that the model may have dificulties classifying correctly healthy eyes compared with the diseases.
+                The accuracy represents the proportion of correct predictions made by the model in comparison to the total number of predictions. The accuracy is high for diseases such as Degeneration (0.92), Hypertension (0.96), and Myopia (0.92). However, for the Normal classification (0.52), accuracy is significantly lower, suggesting that the model struggles to correctly classify healthy eyes compared to diseased ones.
 
-                The **recall** measures the model's capacity identifying all the true positive instances, i.e., it shows the porcentage of true cases correctly classified as true. A high recall value usually indicates that the model is indicating correctly the presence of a disease.
-                Our model has a relatively low recall for diseases such as Cataract (0.47) and Hypertension (0.49). All reacll numbers vary around 0.5, which indicates that approximately 50% of cases are true and classified as true.
+                The recall measures the model's ability to identify all true positive instances, i.e., it indicates the percentage of actual cases correctly classified as positive. A high recall value usually means the model is effective at detecting the presence of a disease. Our model shows relatively low recall for Cataract (0.47) and Hypertension (0.49). In general, recall values hover around 0.5, meaning the model correctly identifies only about 50% of actual cases.
 
-                The **F1 score** is the harmonic average between the precision and the recall. It is useful to evaluate the model's performance in terms of balance between the two metrics. The F1 score is specially useful when there is an imbalance between classes.
+                The F1 score is the harmonic mean of precision and recall, providing a balanced measure of the model's performance. This metric is particularly useful in cases of class imbalance.
+                Again, the F1 scores across all classes remain around 0.5. Despite applying data augmentation to balance the dataset, the model did not show significant improvements in these metrics. This suggests that the transformations applied to the images did not enhance distinguishable features for classification.
 
-                Again, the F1 score in all cases is arround 0.5. Even tough we tried balancing the classes with data augmentation, our model did not present a significative improvement in metrics, because the operations made on the images did not improve significative features for the data classification.
+                The precision metric measures how many of the positive predictions made by the model were actually correct. A high precision score indicates that when the model classifies an instance as positive, it is likely to be correct.
+                With precision values around 0.5, the model exhibits a high rate of false positives, meaning that approximately 50% of cases predicted as diseased are actually incorrect.
 
-                The **precision** is the proportion of positive results predicted correctly as a result of all the instances predicted as positive, i.e. of all the predictions made by the model, how many where correct.
-                High precision numbers indicate a high probability that the classification is correct.
+                The ROC AUC (Receiver Operating Characteristic - Area Under Curve) evaluates the model's ability to distinguish between different classes. A value closer to 1.0 indicates a strong capability to separate classes, while values around 0.5 suggest poor differentiation. In this case, the ROC AUC values remain close to 0.5, indicating the model struggles to effectively differentiate between diseases.
 
-                The precision arround 0.5 indicates that approximately 50% of cases are false positive for diseases.
-
-                The **ROC AUC** (ROC area under curve) is a metric that measures the capacity of the model to distinguish between classes. The closer it is to 1, better is the model when separating the classes.
-                The area under the curve is the rate of false positives versus true positives.
-
-                Again, the ROC AUC has values around 0.5 indicating that the model has some dificulty in distinguishing between the diseases.
-
-                Altough the model has high accuracy in some eye-related diseases, it still has room for improvement, specially when we take the other metrics into account. The imbalance between classes may play an important role in the model's overall performance, specially in underrepresented classes.
+                Although the model demonstrates high accuracy for some eye-related diseases, there is still significant room for improvement, especially when considering the other evaluation metrics. Class imbalance may be a key factor affecting overall performance, particularly for underrepresented categories. Addressing this imbalance with more robust data augmentation techniques, additional labeled data, or improved feature extraction could help enhance the model’s classification abilities.
                 """)
