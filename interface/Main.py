@@ -106,7 +106,7 @@ elif st.session_state.current_page == "about-project":
         """
         This project was idealized as part of the Data Science & AI Bootcamp from LeWagon.
 
-        Worldwide, about 2.2 billion people have vision impairment. An early and efficient diagnosis tool could prevent about half of those cases.
+        Worldwide, about 2.2 billion people have vision impairment. [WHO](https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment) An early and efficient diagnosis tool could prevent about half of those cases.
 
 
         ### 🎯 Project Goals
