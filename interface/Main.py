@@ -57,7 +57,8 @@ if st.session_state.current_page == "home":
 
                         if response.status_code == 200:
                             prediction = response.json().get("result", "No result returned")
-                            st.success(f"Probabilities per class: {prediction}")
+                            #st.success(f"Probabilities per class: {prediction}")
+                            st.success(f"Class: {prediction[0][0]} \n Probability: {prediction[0][1]}")
                         else:
                             st.error("Error fetching prediction. Please try again.")
 
