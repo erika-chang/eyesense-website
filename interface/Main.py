@@ -130,8 +130,8 @@ elif st.session_state.current_page == "about-project":
         - The images were classified according to doctors' diagnostic keywords (information collected by Shanggong Medical Technology Co., Ltd.)
         - **Secure cloud-based API** for fast and reliable predictions
         - Database source: [kaggle](https://www.kaggle.com/datasets/andrewmvd/ocular-disease-recognition-odir5k/data)
-        """
-    )
+        """)
+    st.image("https://erika-chang.github.io/solution_flow.png", caption="Schema of how our tool works and main libraries used", use_container_width=True)
 
 elif st.session_state.current_page == "about-model":
     st.title("🤖 About the Model")
