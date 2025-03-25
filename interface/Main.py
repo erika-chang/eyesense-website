@@ -131,7 +131,7 @@ elif st.session_state.current_page == "about-project":
         - **Secure cloud-based API** for fast and reliable predictions
         - Database source: [kaggle](https://www.kaggle.com/datasets/andrewmvd/ocular-disease-recognition-odir5k/data)
         """)
-    st.image("https://erika-chang.github.io/flow_site_new.png", caption="Schema of how our tool works and main libraries used", use_container_width=True)
+    st.image("https://erika-chang.github.io/flow_site_new_2.png", caption="Schema of how our tool works and main libraries used", use_container_width=True)
 
 elif st.session_state.current_page == "about-model":
     st.title("🤖 About the Model")
