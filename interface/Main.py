@@ -63,6 +63,7 @@ if st.session_state.current_page == "home":
                             #st.success(f"Probabilities per class: {prediction}")
                             predict_df = pd.DataFrame(prediction)
                             predict_df.rename(columns={0: "Class", 1:"Probability"}, inplace=True)
+                            predict_df['Probability'] = predict_df['Probability'].apply(lambda x: str(round(x*100,2))+"%")
                             st.success(f"The most probable class is: {prediction[0][0].capitalize()}")
                             st.dataframe(predict_df, hide_index=True)
 
