@@ -69,6 +69,8 @@ if st.session_state.current_page == "home":
                     except Exception as e:
                         st.error(f"An error occurred: {str(e)}")
 
+
+
         with col1:
             # Exibe a imagem carregada
             st.image(image_file, caption="Uploaded Image", use_container_width=True)
