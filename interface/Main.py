@@ -19,12 +19,12 @@ with st.sidebar:
     st.title("🔍 Eyesense Navigation")
     if st.button("🏠 Home", type="tertiary"):
         change_page("home")
-    if st.button("👥 About Us", type="tertiary"):
-        change_page("about-us")
     if st.button("📌 About the Project", type="tertiary"):
         change_page("about-project")
     if st.button("🤖 About the Model", type="tertiary"):
         change_page("about-model")
+    if st.button("👥 About Us", type="tertiary"):
+        change_page("about-us")
 
 # Exibição do conteúdo da página selecionada
 if st.session_state.current_page == "home":
@@ -134,9 +134,13 @@ elif st.session_state.current_page == "about-model":
         """
         ### 🔥 AI Model Overview
         - **Architecture:** Convolutional Neural Networks (CNN), based on **Xception**
-        - **Training Data:** 6392 images (70% training, 17.73% validation, 7.06% test)
-        - **Accuracy:** ~92% on test datasets
+        - **Training Data:** 6392 images (70% training, 7.93% validation, 7.93% test)
+        - **Accuracy:** ~92% on test datasets""")
 
+    st.image("https://erika-chang.github.io/xception_build.png", caption="Example of a Xception architechture.", use_container_width=True)
+
+    st.markdown(
+        """
         ### 📚 Model Description
         The **Eyesense model** uses the powerful **Xception** architecture, a deep learning model known for its **efficiency** and **high performance** in image classification tasks.
 
@@ -163,8 +167,8 @@ elif st.session_state.current_page == "about-model":
         ### 📚 Technical Details
         - **Frameworks:** TensorFlow
         - **Cloud Hosting:** Google Cloud
-        """
-    )
+        """)
+
     st.markdown("### 📊 Data distribution")
     # Dados das classes
     col1, col2, col3 = st.columns(3)
@@ -246,4 +250,62 @@ elif st.session_state.current_page == "about-model":
                 The **ROC AUC** (Receiver Operating Characteristic - Area Under Curve) evaluates the model's ability to distinguish between different classes. A value closer to 1.0 indicates a strong capability to separate classes, while values around 0.5 suggest poor differentiation. In this case, the ROC AUC values remain close to 0.5, indicating the model struggles to effectively differentiate between diseases.
 
                 Although the model demonstrates high accuracy for some eye-related diseases, there is still significant room for improvement, especially when considering the other evaluation metrics. Class imbalance may be a key factor affecting overall performance, particularly for underrepresented categories. Addressing this imbalance with more robust data augmentation techniques, additional labeled data, or improved feature extraction could help enhance the model’s classification abilities.
+                """)
+
+    st.markdown("""
+                ### 🚀 Xception Under the Hood
+                Xception, developed by Google, stands for **Extreme version of Inception**. It introduces a modified depthwise separable convolution, outperforming Inception-v3 (Google’s 1st Runner-Up in ILSVRC 2015) on both ImageNet ILSVRC and JFT datasets.
+
+                🔎 What’s Covered?
+                - Original Depthwise Separable Convolution
+                - Modified Depthwise Separable Convolution in Xception
+                - Overall Architecture
+                - Comparison with State-of-the-Art Results
+
+                1. Original Depthwise Separable Convolution
+                The original depthwise separable convolution consists of:
+                -  Depthwise convolution – A channel-wise n×n spatial convolution. If there are 5 channels, then 5 separate n×n spatial convolutions are performed.
+                - Pointwise convolution – A 1×1 convolution that adjusts the dimensionality.
+
+                💡 Why is this better than conventional convolution?
+
+                Unlike traditional convolution, depthwise separable convolution reduces the number of connections, making the model lighter and more efficient.
+
+                2. Modified Depthwise Separable Convolution in Xception
+                In Xception, the depthwise separable convolution is rearranged:
+                - Pointwise convolution (1×1) is applied first
+                - Depthwise convolution (n×n) follows after
+
+                💡 Why this modification?
+                This design is inspired by the Inception module in Inception-v3, where 1×1 convolutions are applied before any n×n spatial convolutions (typically 3×3).
+
+                🔬 Key Differences from the Original Version
+                - Order of Operations
+                Original: Depthwise convolution → 1×1 convolution
+                Xception: 1×1 convolution → Depthwise convolution
+                However, this change is considered minor when using multiple stacked layers.
+
+
+                - Non-Linearity
+                In Inception, a ReLU activation is applied after the first operation.
+                In Xception, there is NO intermediate activation function (ReLU/ELU), leading to higher accuracy.
+
+                - Performance Comparison
+                Xception without intermediate activation functions achieves higher accuracy than versions using ELU or ReLU.
+
+                3. Overall Architecture
+                Xception treats SeparableConv (modified depthwise separable convolution) as Inception Modules, integrating them throughout the deep learning architecture.
+                - Residual (shortcut/skip) connections (inspired by ResNet) are incorporated in all flows.
+
+                  Residual Connections Matter!
+
+                  ✅ With residual connections → Higher accuracy
+
+                  ❌ Without residual connections → Lower accuracy
+
+                  📈 Xception performs significantly better with residual connections, proving their importance in deep learning architectures!
+
+                Xception's optimized depthwise separable convolution and residual connections make it one of the most powerful architectures for image classification!
+
+                Reference: [Chollet, F., Xception: Deep Learning with Depthwise Separable Convolutions](https://openaccess.thecvf.com/content_cvpr_2017/papers/Chollet_Xception_Deep_Learning_CVPR_2017_paper.pdf)
                 """)
