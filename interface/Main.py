@@ -37,7 +37,7 @@ if st.session_state.current_page == "home":
 
     st.markdown("### 🔬 How does it work?")
     #st.write("**Simply upload a fundus eye image**, and our AI model—powered by state-of-the-art deep learning techniques—will analyze it to identify potential eye diseases.")
-    st.write("Simply your **eye fundus exam**, and our AI model will analyze it for potential diseases.")
+    st.write("Simply upload your **eye fundus exam**, and our AI model will analyze it for potential diseases.")
 
     # Upload de imagem
     image_file = st.file_uploader("Upload your image file here:", type=["jpeg", "png", "jpg"])
