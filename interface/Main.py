@@ -123,8 +123,9 @@ elif st.session_state.current_page == "about-project":
         - Cataract (C)
         - Age-related Macular Degeneration (A)
         - Hypertension (H)
-        - Pathological Myopia (M)
-
+        - Pathological Myopia (M)""")
+    st.image("https://erika-chang.github.io/eye_diseases_effetc.png", caption="How different eye diseases affect the vision", use_container_width=True)
+    st.markdown("""
         ### 🔍 How We Built It
         - **Deep Learning Models** trained on an ophthalmic database of approximately **5,000 patients**
         - The images were classified according to doctors' diagnostic keywords (information collected by Shanggong Medical Technology Co., Ltd.)
