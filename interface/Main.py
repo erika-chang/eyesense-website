@@ -31,7 +31,7 @@ if st.session_state.current_page == "home":
     st.title("Eyesense 👁️ – AI for Eye Disease Detection")
 
     st.write(
-        "Eyesense is an **AI-powered tool** designed to assist in the early detection of **eye diseases** "
+        "An **AI-powered tool** designed to assist in the early detection of **eye diseases** "
         "using deep learning models trained on thousands of medical images."
     )
     #st.markdown("""
