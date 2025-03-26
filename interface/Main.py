@@ -34,13 +34,6 @@ if st.session_state.current_page == "home":
         "An **AI-powered tool** designed to assist in the early detection of **eye diseases** "
         "using deep learning models trained on thousands of medical images."
     )
-    #st.markdown("""
-    #   **Eysense** is an advanced **AI-driven technology** designed for the **analysis of fundus eye exams to detect ocular diseases with high precision**.
-
-    #   By leveraging deep learning, our system assists healthcare professionals in making faster and more accurate diagnoses, enabling early detection and improved patient outcomes.
-
-    #   With cutting-edge artificial intelligence, Eyesense enhances diagnostic accuracy, supports clinical decision-making, and contributes to the future of ophthalmology.
-    #   """)
 
     st.markdown("### 🔬 How does it work?")
     #st.write("**Simply upload a fundus eye image**, and our AI model—powered by state-of-the-art deep learning techniques—will analyze it to identify potential eye diseases.")
@@ -97,6 +90,12 @@ elif st.session_state.current_page == "about-us":
         - 🚀 Cutting-edge AI technology
         - 🏥 Support for medical professionals
         - 🌍 Global health impact
+
+        **Eysense** is an advanced **AI-driven technology** designed for the **analysis of fundus eye exams to detect ocular diseases with high precision**.
+
+       By leveraging deep learning, our system assists healthcare professionals in making faster and more accurate diagnoses, enabling early detection and improved patient outcomes.
+
+       With cutting-edge artificial intelligence, Eyesense enhances diagnostic accuracy, supports clinical decision-making, and contributes to the future of ophthalmology.
 
         ### 📱 Get in Touch with Us:
         - [LinkedIn: Claudio](https://www.linkedin.com/in/caazzi)
