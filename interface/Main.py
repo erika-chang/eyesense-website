@@ -149,7 +149,7 @@ elif st.session_state.current_page == "about-model":
         - **Training Data:** 6392 images
         - **Accuracy:** ~92% on test datasets""")
 
-    st.image("https://erika-chang.github.io/xception_build.png", caption="Example of a Xception architechture.", use_container_width=True)
+    st.image("https://erika-chang.github.io/xception_build.png", caption="Example of a Xception architecture", use_container_width=True)
 
     st.markdown(
         """
@@ -171,7 +171,7 @@ elif st.session_state.current_page == "about-model":
         ### 🏥 Diseases Detected
         - Cataract
         - Age-related Macular Degeneration
-        - Diabets
+        - Diabetes
         - Glaucoma
         - Hypertension
         - Pathological Myopia
