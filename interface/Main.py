@@ -50,7 +50,7 @@ if st.session_state.current_page == "home":
         with col2:
             st.info("Click 'Predict!' to analyze the image.")
             # Botão de previsão
-            if st.button("Predict! 🧙‍♀️"):
+            if st.button("Predict! 🤖"):
                 with st.spinner("Analyzing... 🔍"):
                     try:
                         img_bytes = image_file.getvalue()
